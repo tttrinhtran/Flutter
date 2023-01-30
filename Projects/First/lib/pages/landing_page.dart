@@ -1,15 +1,62 @@
+import 'package:first/values/app_assets.dart';
+import 'package:first/values/app_colors.dart';
+import 'package:first/values/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class FontFamily{
-  static const sen = 'Sen';
-}
+class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
 
-class AppStyles{
-  static const TextStyle h1 = TextStyle(
-    fontFamily: FontFamily.sen, fontSize: 109.66, color: Colors.white);
-  static const TextStyle h2 = TextStyle(
-    fontFamily: FontFamily.sen, fontSize: 67.77, color: Colors.white);
-  static const TextStyle h3 = TextStyle(
-    fontFamily: FontFamily.sen, fontSize: 41.89, color: Colors.white);
-
+  @override
+  Widget build(BuildContext context) {
+    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []); 
+    return Scaffold(
+      backgroundColor: AppColors.primaryColor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Welcome to', 
+                  style: AppStyles.h3,
+                  ),
+                ),
+            ),
+            Expanded(
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'English', style: AppStyles.h2.copyWith(color: AppColors.blackGrey, fontWeight: FontWeight.bold,)
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Text(
+                        'Quotes', 
+                        textAlign: TextAlign.right,
+                        style: AppStyles.h3.copyWith(height: 0.5),
+                      ),
+                    ),
+                  ]),
+                ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 80.0),
+                child: RawMaterialButton(
+                  shape: CircleBorder(),
+                  fillColor: AppColors.lightBlue,
+                  onPressed: () {},
+                  child: Image.asset(AppAssets.rightArrow),
+                  ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
