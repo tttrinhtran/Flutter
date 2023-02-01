@@ -1,3 +1,4 @@
+import 'package:first/pages/home_page.dart';
 import 'package:first/values/app_assets.dart';
 import 'package:first/values/app_colors.dart';
 import 'package:first/values/app_styles.dart';
@@ -8,7 +9,7 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []); 
+    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: Padding(
@@ -19,29 +20,31 @@ class LandingPage extends StatelessWidget {
               child: Container(
                 alignment: Alignment.centerLeft,
                 child: const Text(
-                  'Welcome to', 
+                  'Welcome to',
                   style: AppStyles.h3,
-                  ),
                 ),
+              ),
             ),
             Expanded(
               child: Container(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      'English', style: AppStyles.h2.copyWith(color: AppColors.blackGrey, fontWeight: FontWeight.bold,)
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: Text(
-                        'Quotes', 
-                        textAlign: TextAlign.right,
-                        style: AppStyles.h3.copyWith(height: 0.5),
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text('English',
+                          style: AppStyles.h2.copyWith(
+                            color: AppColors.blackGrey,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Text(
+                          'Quotes',
+                          textAlign: TextAlign.right,
+                          style: AppStyles.h3.copyWith(height: 0.5),
+                        ),
                       ),
-                    ),
-                  ]),
-                ),
+                    ]),
+              ),
             ),
             Expanded(
               child: Padding(
@@ -49,9 +52,12 @@ class LandingPage extends StatelessWidget {
                 child: RawMaterialButton(
                   shape: CircleBorder(),
                   fillColor: AppColors.lightBlue,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
                   child: Image.asset(AppAssets.rightArrow),
-                  ),
+                ),
               ),
             ),
           ],
