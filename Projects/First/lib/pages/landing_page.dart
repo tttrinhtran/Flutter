@@ -53,8 +53,10 @@ class LandingPage extends StatelessWidget {
                   shape: CircleBorder(),
                   fillColor: AppColors.lightBlue,
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (_) => HomePage()),
+                        (route) => false);
                   },
                   child: Image.asset(AppAssets.rightArrow),
                 ),
